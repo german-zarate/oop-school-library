@@ -125,7 +125,7 @@ Runs the app in the terminal.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **We will implement GUI**
+- [ ] **I will implement GUI**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -135,7 +135,7 @@ Runs the app in the terminal.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](../../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -153,7 +153,6 @@ Give a ⭐️ if you like this project!
 
 - My Family.
 - [Microverse Team](https://www.microverse.org/).
-- [Planet icon](https://www.flaticon.com/free-icons/planet) created by Freepik - [Flaticon](https://www.flaticon.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
