@@ -1,7 +1,8 @@
 require './person'
 
-class Teacher < Persion
-    def initialize
-        
+class Teacher < Person
+    def initialize(name = 'Unknown', age = nil, parent_permission: true, specialization: nil)
+        super(name, age, parent_permission: parent_permission)
+        @specialization = specialization
     end
 end
