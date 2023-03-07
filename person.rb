@@ -11,6 +11,10 @@ class Decorator < Nameable
     super()
     @nameable = nameable
   end
+
+  def correct_name
+    @nameable
+  end
 end
 
 class Person < Nameable
