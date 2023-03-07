@@ -4,6 +4,14 @@ class Nameable
   end
 end
 
+class Decorator < Nameable
+  attr_accessor :nameable
+
+  def initialize()
+    super()
+  end
+end
+
 class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age
