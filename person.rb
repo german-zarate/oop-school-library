@@ -23,6 +23,9 @@ class CapitalizeDecorator < Decorator
   end
 end
 
+class TrimmerDecorator < Decorator
+end
+
 class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age
