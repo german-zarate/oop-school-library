@@ -17,6 +17,10 @@ class Decorator < Nameable
   end
 end
 
+class CapitalizeDecorator < Decorator
+  def correct_name; end
+end
+
 class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age
