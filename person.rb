@@ -18,7 +18,9 @@ class Decorator < Nameable
 end
 
 class CapitalizeDecorator < Decorator
-  def correct_name; end
+  def correct_name
+    @nameable.correct_name.capitalize
+  end
 end
 
 class Person < Nameable
