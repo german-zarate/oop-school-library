@@ -25,5 +25,6 @@ class App
     book = Book.new(title, author)
     @books.push(book)
     puts 'Book created successfully!'
+    puts "\n"
   end
 end

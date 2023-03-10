@@ -28,7 +28,8 @@ class Main
     when '3'
       puts 'Create a person'
     when '4'
-      puts 'Create a book'
+      # puts 'Create a book'
+      app.create_book
     when '5'
       puts 'Create a rental'
     when '6'
