@@ -41,16 +41,22 @@ class App
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     num = gets.chomp
-    case num
-    when '1'
+    if %w[1 2].include?(num)
       print 'Age: '
       age = gets.chomp
       print 'Name: '
       name = gets.chomp
+    end
+
+    case num
+    when '1'
       student = create_student(name, age)
       @people.push(student)
-      puts "Person created successfully!\n\n"
+    when '2'
+      teacher = creat_teacher(name, age)
+      @people.push(teacher)
     end
+    puts "Person created successfully!\n\n"
   end
 
   def create_student(name, age)
@@ -61,5 +67,11 @@ class App
     print 'Enter classroom: '
     classroom = gets.chomp
     Student.new(name, age, parent_permission: bool_permission, classroom: classroom)
+  end
+
+  def creat_teacher(name, age)
+    print 'Specialization:'
+    specialization = gets.chomp
+    Teacher.new(name, age, parent_permission: true, specialization: specialization)
   end
 end
