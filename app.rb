@@ -96,4 +96,27 @@ class App
     end
     puts "\n"
   end
+
+  def create_rental
+    if @books.empty?
+      puts 'No books avilable, Add a new book.'
+    elsif @people.empty?
+      puts 'No person avilable, Add a new person.'
+    else
+      puts "\nSelect a book from the following list by number"
+      book_list_print(is_printing_index: true)
+      book_id = gets.chomp.to_i
+
+      puts "\nSelect a person from the following list by number (not id)"
+      person_list(is_printing_index: true)
+      person_id = gets.chomp.to_i
+
+      print "\nDate: "
+      date = gets.chomp
+
+      rent = Rental.new(date, @people[person_id], @books[book_id])
+      @rental.push(rent)
+      puts "Rental created successfully!\n\n"
+    end
+  end
 end

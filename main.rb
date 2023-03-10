@@ -34,7 +34,8 @@ class Main
       # puts 'Create a book'
       app.create_book
     when '5'
-      puts 'Create a rental'
+      # puts 'Create a rental'
+      app.create_rental
     when '6'
       # puts 'List all rentals for a given person id'
       app.rental_list
