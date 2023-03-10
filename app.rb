@@ -47,15 +47,19 @@ class App
       age = gets.chomp
       print 'Name: '
       name = gets.chomp
-      print 'Parent permisssion [y/n]:'
-      permission = gets.chomp
-      bool_permission = true
-      bool_permission = false if %w[n N].include?(permission)
-      print 'Enter classroom: '
-      classroom = gets.chomp
-      Student.new(name, age, parent_permission: bool_permission, classroom: classroom)
+      student = create_student(name, age)
       @people.push(student)
       puts "Person created successfully!\n\n"
     end
+  end
+
+  def create_student(name, age)
+    print 'Parent permisssion [y/n]:'
+    permission = gets.chomp
+    bool_permission = true
+    bool_permission = false if %w[n N].include?(permission)
+    print 'Enter classroom: '
+    classroom = gets.chomp
+    Student.new(name, age, parent_permission: bool_permission, classroom: classroom)
   end
 end
