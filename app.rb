@@ -13,11 +13,19 @@ class App
     if @books.empty?
       puts 'book list is empty, try add a new book!'
     else
-      @books.each_with_index do |book, _index|
+      book_list_print
+    end
+  end
+
+  def book_list_print(is_printing_index: false)
+    @books.each_with_index do |book, index|
+      if is_printing_index
+        puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
+      else
         puts "Title: \"#{book.title}\", Author: #{book.author}"
       end
-      puts "\n"
     end
+    puts "\n"
   end
 
   def create_book
@@ -31,9 +39,13 @@ class App
     puts "\n"
   end
 
-  def person_list
-    @people.each_with_index do |person, _index|
-      puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+  def person_list(is_printing_index: false)
+    @people.each_with_index do |person, index|
+      if is_printing_index
+        puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      else
+        puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
     end
     puts "\n"
   end
@@ -82,5 +94,6 @@ class App
     @rental.each do |rent|
       puts "Date: #{rent.date}, Book \"#{rent.book.title}\" by #{rent.book.author}" if rent.person.id == id
     end
+    puts "\n"
   end
 end
