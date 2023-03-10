@@ -11,9 +11,10 @@ class App
     if @books.empty?
       puts 'book list is empty, try add a new book!'
     else
-      @books.each_with_index do |book, index|
-        puts "#{index} Title: #{book.title}, Author: #{book.author}"
+      @books.each_with_index do |book, _index|
+        puts "Title: \"#{book.title}\", Author: #{book.author}"
       end
+      puts "\n"
     end
   end
 

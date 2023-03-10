@@ -22,7 +22,8 @@ class Main
 
     case option
     when '1'
-      puts 'List all books'
+      # puts 'List all books'
+      app.book_list
     when '2'
       puts 'List all people'
     when '3'
