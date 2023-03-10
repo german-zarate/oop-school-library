@@ -36,7 +36,8 @@ class Main
     when '5'
       puts 'Create a rental'
     when '6'
-      puts 'List all rentals for a given person id'
+      # puts 'List all rentals for a given person id'
+      app.rental_list
     when '7'
       puts puts "Thank you for using this app!\n\n"
       break

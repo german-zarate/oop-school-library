@@ -74,4 +74,13 @@ class App
     specialization = gets.chomp
     Teacher.new(name, age, parent_permission: true, specialization: specialization)
   end
+
+  def rental_list
+    print 'ID of person: '
+    id = gets.chomp.to_i
+    puts 'Rentals:'
+    @rental.each do |rent|
+      puts "Date: #{rent.date}, Book \"#{rent.book.title}\" by #{rent.book.author}" if rent.person.id == id
+    end
+  end
 end
