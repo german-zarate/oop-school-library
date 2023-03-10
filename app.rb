@@ -9,20 +9,16 @@ class App
     @rental = []
   end
 
-  def book_list
+  def book_list(is_printing_index: false)
     if @books.empty?
       puts 'book list is empty, try add a new book!'
     else
-      book_list_print
-    end
-  end
-
-  def book_list_print(is_printing_index: false)
-    @books.each_with_index do |book, index|
-      if is_printing_index
-        puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
-      else
-        puts "Title: \"#{book.title}\", Author: #{book.author}"
+      @books.each_with_index do |book, index|
+        if is_printing_index
+          puts "#{index}) Title: \"#{book.title}\", Author: #{book.author}"
+        else
+          puts "Title: \"#{book.title}\", Author: #{book.author}"
+        end
       end
     end
     puts "\n"
@@ -104,7 +100,7 @@ class App
       puts 'No person avilable, Add a new person.'
     else
       puts "\nSelect a book from the following list by number"
-      book_list_print(is_printing_index: true)
+      book_list(is_printing_index: true)
       book_id = gets.chomp.to_i
 
       puts "\nSelect a person from the following list by number (not id)"
