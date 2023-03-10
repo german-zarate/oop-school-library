@@ -1,4 +1,6 @@
 require './book'
+require './student'
+require './teacher'
 
 class App
   def initialize
@@ -26,6 +28,13 @@ class App
     book = Book.new(title, author)
     @books.push(book)
     puts 'Book created successfully!'
+    puts "\n"
+  end
+
+  def person_list
+    @people.each_with_index do |person, _index|
+      puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    end
     puts "\n"
   end
 end

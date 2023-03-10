@@ -25,7 +25,8 @@ class Main
       # puts 'List all books'
       app.book_list
     when '2'
-      puts 'List all people'
+      # puts 'List all people'
+      app.person_list
     when '3'
       puts 'Create a person'
     when '4'
