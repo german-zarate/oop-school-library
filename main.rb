@@ -1,4 +1,7 @@
+require './app'
+
 class Main
+  app = App.new
   puts 'Welcome to School Library App!'
   puts "\n"
   puts 'Please choose an option by entering a number:'
