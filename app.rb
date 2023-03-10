@@ -37,4 +37,25 @@ class App
     end
     puts "\n"
   end
+
+  def create_person
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    num = gets.chomp
+    case num
+    when '1'
+      print 'Age: '
+      age = gets.chomp
+      print 'Name: '
+      name = gets.chomp
+      print 'Parent permisssion [y/n]:'
+      permission = gets.chomp
+      bool_permission = true
+      bool_permission = false if %w[n N].include?(permission)
+      print 'Enter classroom: '
+      classroom = gets.chomp
+      Student.new(name, age, parent_permission: bool_permission, classroom: classroom)
+      @people.push(student)
+      puts "Person created successfully!\n\n"
+    end
+  end
 end

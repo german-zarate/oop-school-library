@@ -28,7 +28,8 @@ class Main
       # puts 'List all people'
       app.person_list
     when '3'
-      puts 'Create a person'
+      # puts 'Create a person'
+      app.create_person
     when '4'
       # puts 'Create a book'
       app.create_book
