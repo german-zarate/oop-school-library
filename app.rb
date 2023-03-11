@@ -50,21 +50,27 @@ class App
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     num = gets.chomp
     if %w[1 2].include?(num)
-      print 'Age: '
-      age = gets.chomp
+      temp = false
+      until temp
+        print 'Age: '
+        age = gets.chomp.to_i
+        puts 'Enter a valid number' unless age.positive?
+        temp = age.positive?
+      end
       print 'Name: '
       name = gets.chomp
     end
 
+    created_person = nil
     case num
     when '1'
-      student = create_student(name, age)
-      @people.push(student)
+      created_person = create_student(name, age)
     when '2'
-      teacher = creat_teacher(name, age)
-      @people.push(teacher)
+      created_person = creat_teacher(name, age)
     end
+    @people.push(created_person)
     puts "Person created successfully!\n\n"
+    created_person
   end
 
   def create_student(name, age)

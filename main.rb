@@ -1,3 +1,4 @@
+require 'pry'
 require './app'
 
 class Main
@@ -17,7 +18,7 @@ class Main
     puts '6 - List all rentals for a given person id'
     puts '7 - Exit'
     puts "\n"
-
+    binding.pry
     option = gets.chomp
 
     case option
