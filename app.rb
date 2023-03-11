@@ -57,8 +57,14 @@ class App
         puts 'Enter a valid number' unless age.positive?
         temp = age.positive?
       end
-      print 'Name: '
-      name = gets.chomp
+      
+      checking = false
+      until checking
+        print 'Name: '
+        name = gets.chomp
+        puts 'Enter a valid name' unless !name.to_i.positive? 
+        checking = !name.to_i.positive?
+      end 
     end
 
     created_person = nil
