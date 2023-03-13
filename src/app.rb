@@ -1,6 +1,6 @@
-require './book'
-require './student'
-require './teacher'
+require './src/book'
+require './src/student'
+require './src/teacher'
 
 class App
   def initialize

@@ -1,4 +1,4 @@
-require './app'
+require './src/app'
 
 class Main
   app = App.new
