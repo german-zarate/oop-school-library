@@ -2,7 +2,7 @@ require 'json'
 
 class HandleData
   def initialize(filename)
-    @filename = "#{filename}.json"
+    @filename = "./data/#{filename}.json"
   end
 
   def read
