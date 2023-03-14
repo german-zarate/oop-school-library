@@ -7,7 +7,7 @@ class App
   def initialize
     @books = []
     @people = []
-    @rental = []
+    @rentals = []
     @books_data = HandleData.new('books')
     @people_data = HandleData.new('people')
     @rentals_data = HandleData.new('rentals')
@@ -88,7 +88,7 @@ class App
     until checking
       print 'Name: '
       name = gets.chomp
-      puts 'Enter a valid name' if name.to_i <= 0
+      puts 'Enter a valid name' if name.to_i.positive?
       checking = !name.to_i.positive?
     end
     name
@@ -114,7 +114,7 @@ class App
     print 'ID of person: '
     id = gets.chomp.to_i
     puts 'Rentals:'
-    @rental.each do |rent|
+    @rentals.each do |rent|
       puts "Date: #{rent.date}, Book \"#{rent.book.title}\" by #{rent.book.author}" if rent.person.id == id
     end
     puts "\n"
@@ -138,7 +138,7 @@ class App
       date = gets.chomp
 
       rent = Rental.new(date, @people[person_id], @books[book_id])
-      @rental.push(rent)
+      @rentals.push(rent)
       puts "Rental created successfully!\n\n"
     end
   end
@@ -152,8 +152,12 @@ class App
     end
     @books_data.write(generated_books)
 
-    generated_people = @people.map do |pep| 
-      [pep.id, pep.name, pep.age]
+    generated_people = @people.map do |pep|
+      if pep.instance_of?(::Student)
+        [pep.class, pep.name, pep.age, pep.parent_permission, pep.classroom]
+      else
+        [pep.class, pep.name, pep.age, pep.parent_permission, pep.specialization]
+      end
     end
     @people_data.write(generated_people)
 
