@@ -4,8 +4,16 @@ require './src/teacher'
 require './src/handle_data'
 
 class App
+
+  def get_books
+    return [] unless File.exist?('./data/books.json')
+    book_items = File.read('./data/books.json')
+    book_list = JSON.parse(book_items)
+    book_list.each{ Book.new('title', 'author') }
+  end
+
   def initialize
-    @books = []
+    @books = get_books
     @people = []
     @rentals = []
     @books_data = HandleData.new('books')
