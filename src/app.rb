@@ -2,23 +2,26 @@ require './src/book'
 require './src/student'
 require './src/teacher'
 require './src/handle_data'
+require './src/rental'
 
 class App
-
-  def get_books
-    return [] unless File.exist?('./data/books.json')
-    book_items = File.read('./data/books.json')
-    book_list = JSON.parse(book_items)
-    book_list.each{ Book.new('title', 'author') }
-  end
-
   def initialize
-    @books = get_books
-    @people = []
-    @rentals = []
     @books_data = HandleData.new('books')
     @people_data = HandleData.new('people')
     @rentals_data = HandleData.new('rentals')
+    @books = @books_data.read.map { |book| Book.new(book[0], book[1]) }
+    @people = @people_data.read.map do |pep|
+      if pep[0] == 'Student'
+        Student.new(pep[1], pep[2], parent_permission: pep[3], classroom: pep[4])
+      else
+        Teacher.new(pep[1], pep[2], parent_permission: pep[3], specialization: pep[4])
+      end
+    end
+    @rentals = @rentals_data.read.map do |rental|
+      book = @books.select { |bok| bok.title == rental[2] }[0]
+      person = @people.select { |pep| pep.name == rental[1] }[0]
+      Rental.new(rental[0], person, book)
+    end
   end
 
   def book_list(is_printing_index: false)
@@ -43,8 +46,7 @@ class App
     author = gets.chomp
     book = Book.new(title, author)
     @books.push(book)
-    puts 'Book created successfully!'
-    puts "\n"
+    puts "Book created successfully!\n"
   end
 
   def person_list(is_printing_index: false)
@@ -65,13 +67,10 @@ class App
       age = add_person_age
       name = add_person_name
     end
-
     created_person = nil
     case num
-    when '1'
-      created_person = create_student(name, age)
-    when '2'
-      created_person = creat_teacher(name, age)
+    when '1' then created_person = create_student(name, age)
+    when '2' then created_person = creat_teacher(name, age)
     end
     @people.push(created_person)
     puts "Person created successfully!\n\n"
@@ -153,10 +152,7 @@ class App
 
   def save_files
     generated_books = @books.map do |book|
-      [
-        book.title,
-        book.author
-      ]
+      [book.title, book.author]
     end
     @books_data.write(generated_books)
 
