@@ -38,6 +38,7 @@ class Menu
       # puts 'List all rentals for a given person id'
       app.rental_list
     when '7'
+      app.save_files
       puts puts "Thank you for using this app!\n\n"
       break
     else
