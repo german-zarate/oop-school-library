@@ -1,12 +1,14 @@
 require './src/book'
 require './src/student'
 require './src/teacher'
+require './src/handle_data'
 
 class App
   def initialize
     @books = []
     @people = []
     @rental = []
+    @books_data = HandleData.new('books')
   end
 
   def book_list(is_printing_index: false)
@@ -137,5 +139,15 @@ class App
       @rental.push(rent)
       puts "Rental created successfully!\n\n"
     end
+  end
+
+  def save_files
+    generated_books = @books.map do |book|
+      [
+        book.title,
+        book.author
+      ]
+    end
+    @books_data.write(generated_books)
   end
 end
