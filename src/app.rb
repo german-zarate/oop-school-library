@@ -9,6 +9,8 @@ class App
     @people = []
     @rental = []
     @books_data = HandleData.new('books')
+    @people_data = HandleData.new('people')
+    @rentals_data = HandleData.new('rentals')
   end
 
   def book_list(is_printing_index: false)
@@ -149,5 +151,15 @@ class App
       ]
     end
     @books_data.write(generated_books)
+
+    generated_people = @people.map do |pep| 
+      [pep.id, pep.name, pep.age]
+    end
+    @people_data.write(generated_people)
+
+    generated_rentals = @rentals.map do |rental|
+      [rental.date, rental.person.name, rental.book.title]
+    end
+    @rentals_data.write(generated_rentals)
   end
 end
