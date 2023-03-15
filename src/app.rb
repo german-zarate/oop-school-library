@@ -1,12 +1,27 @@
 require './src/book'
 require './src/student'
 require './src/teacher'
+require './src/handle_data'
+require './src/rental'
 
 class App
   def initialize
-    @books = []
-    @people = []
-    @rental = []
+    @books_data = HandleData.new('books')
+    @people_data = HandleData.new('people')
+    @rentals_data = HandleData.new('rentals')
+    @books = @books_data.read.map { |book| Book.new(book[0], book[1]) }
+    @people = @people_data.read.map do |pep|
+      if pep[0] == 'Student'
+        Student.new(pep[1], pep[2], parent_permission: pep[3], classroom: pep[4])
+      else
+        Teacher.new(pep[1], pep[2], parent_permission: pep[3], specialization: pep[4])
+      end
+    end
+    @rentals = @rentals_data.read.map do |rental|
+      book = @books.select { |bok| bok.title == rental[2] }[0]
+      person = @people.select { |pep| pep.name == rental[1] }[0]
+      Rental.new(rental[0], person, book)
+    end
   end
 
   def book_list(is_printing_index: false)
@@ -31,8 +46,7 @@ class App
     author = gets.chomp
     book = Book.new(title, author)
     @books.push(book)
-    puts 'Book created successfully!'
-    puts "\n"
+    puts "Book created successfully!\n"
   end
 
   def person_list(is_printing_index: false)
@@ -53,13 +67,10 @@ class App
       age = add_person_age
       name = add_person_name
     end
-
     created_person = nil
     case num
-    when '1'
-      created_person = create_student(name, age)
-    when '2'
-      created_person = creat_teacher(name, age)
+    when '1' then created_person = create_student(name, age)
+    when '2' then created_person = creat_teacher(name, age)
     end
     @people.push(created_person)
     puts "Person created successfully!\n\n"
@@ -84,7 +95,7 @@ class App
     until checking
       print 'Name: '
       name = gets.chomp
-      puts 'Enter a valid name' if name.to_i <= 0
+      puts 'Enter a valid name' if name.to_i.positive?
       checking = !name.to_i.positive?
     end
     name
@@ -110,7 +121,7 @@ class App
     print 'ID of person: '
     id = gets.chomp.to_i
     puts 'Rentals:'
-    @rental.each do |rent|
+    @rentals.each do |rent|
       puts "Date: #{rent.date}, Book \"#{rent.book.title}\" by #{rent.book.author}" if rent.person.id == id
     end
     puts "\n"
@@ -134,8 +145,29 @@ class App
       date = gets.chomp
 
       rent = Rental.new(date, @people[person_id], @books[book_id])
-      @rental.push(rent)
+      @rentals.push(rent)
       puts "Rental created successfully!\n\n"
     end
+  end
+
+  def save_files
+    generated_books = @books.map do |book|
+      [book.title, book.author]
+    end
+    @books_data.write(generated_books)
+
+    generated_people = @people.map do |pep|
+      if pep.instance_of?(::Student)
+        [pep.class, pep.name, pep.age, pep.parent_permission, pep.classroom]
+      else
+        [pep.class, pep.name, pep.age, pep.parent_permission, pep.specialization]
+      end
+    end
+    @people_data.write(generated_people)
+
+    generated_rentals = @rentals.map do |rental|
+      [rental.date, rental.person.name, rental.book.title]
+    end
+    @rentals_data.write(generated_rentals)
   end
 end
