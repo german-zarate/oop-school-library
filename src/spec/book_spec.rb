@@ -1,4 +1,4 @@
-require_relative 'book'
+require_relative '../book'
 
 title = 'First Book'
 author = 'First Author'
