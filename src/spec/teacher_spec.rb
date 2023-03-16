@@ -33,5 +33,4 @@ describe Teacher do
   it 'Teacher should always can use services' do
     expect(@teacher.can_use_services?).to be true
   end
-
 end
