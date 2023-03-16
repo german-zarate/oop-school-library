@@ -26,4 +26,13 @@ describe Classroom do
 
     expect(@classroom.students.length).to eq(3)
   end
+
+  it 'add_student method should increase the length of students and include new student' do
+    before_number_of_students = @classroom.students.length
+    new_student = Student.new('student x', 18, parent_permission: true, classroom: @classroom)
+    @classroom.add_student(new_student)
+
+    expect(@classroom.students.length).to eq(before_number_of_students + 1)
+    expect(@classroom.students.include?(new_student)).to eql(true)
+  end
 end
