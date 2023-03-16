@@ -11,7 +11,7 @@
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
-- [Run-test ](#run-test-)
+    - [Run-test ](#run-test-)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -109,7 +109,7 @@ In the project directory, you can run:
 
 Runs the app in the terminal.
 
-# Run-test <a name="run-test"></a>
+### Run-test <a name="run-test"></a>
 To run the test use the following command
 ```
 rspec src/spec
@@ -141,7 +141,7 @@ rspec src/spec
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../../issues/).
+Feel free to check the [issues page](https://github.com/shahadat3669/oop-school-library/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
