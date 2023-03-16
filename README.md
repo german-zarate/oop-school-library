@@ -2,25 +2,23 @@
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🔭 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
-- [📝 License](#license)
+- [📗 Table of Contents](#-table-of-contents)
+- [🎯 OOP School Library](#-oop-school-library)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Run-test ](#run-test-)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [👋 Show your support ](#-show-your-support-)
+  - [🔭Acknowledgments ](#acknowledgments-)
+  - [❓ FAQ ](#-faq-)
+  - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -106,11 +104,16 @@ Go to the project directory.
 In the project directory, you can run:
 
 ```bash
-  ruby mylist.rb
+  ruby main.rb
 ```
 
 Runs the app in the terminal.
 
+### Run-test <a name="run-test"></a>
+To run the test use the following command
+```
+rspec src/spec
+```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -119,13 +122,16 @@ Runs the app in the terminal.
 
 **Shahadat Hossain**
 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/shahadat3669) [![linkedin](https://img.shields.io/badge/shahadat3669-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/shahadat3669) [![twitter](https://img.shields.io/badge/@shahadat3669-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/shahadat3669)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://gutemag.github.io/) [![linkedin](https://img.shields.io/badge/shahadat3669-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/shahadat3669) [![twitter](https://img.shields.io/badge/@shahadat3669-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/shahadat3669)
 
+**Birhanu Gudisa**
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/GutemaG) [![linkedin](https://img.shields.io/badge/birhanugudisa-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/birhanuguidsa) [![twitter](https://img.shields.io/badge/@birhanugudisa3-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/birhanugudisa3)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **I will implement GUI**
+- [ ] **Implement GUI**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -135,7 +141,7 @@ Runs the app in the terminal.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../../issues/).
+Feel free to check the [issues page](https://github.com/shahadat3669/oop-school-library/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
