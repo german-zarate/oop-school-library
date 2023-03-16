@@ -29,4 +29,9 @@ describe Teacher do
   it 'Teacher should have specialization named First specialization' do
     expect(@teacher.specialization).to eql(specialization)
   end
+
+  it 'Teacher should always can use services' do
+    expect(@teacher.can_use_services?).to be true
+  end
+
 end
