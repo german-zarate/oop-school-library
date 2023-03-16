@@ -29,4 +29,19 @@ describe Person do
   it 'Person correct_name method should return correctly' do
     expect(@person.correct_name).to eql(name)
   end
+
+  it 'Person of_age? method should return the value correctly' do
+    expect(@person.send(:of_age?)).to eq(true)
+  end
+
+  it 'can_use_service should return correctly' do
+    expect(@person.can_use_services?).to be true
+  end
+
+  it 'add_rental method should add rental correctly' do
+    book = Book.new('book 1', 'author1')
+    new_rental = Rental.new(Time.new, @person, book)
+    @person.add_rental(new_rental)
+    expect(@person.rentals.include?(new_rental)).to be true
+  end
 end
