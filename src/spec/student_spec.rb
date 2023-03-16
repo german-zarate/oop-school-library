@@ -29,4 +29,14 @@ describe Student do
   it 'Student has a class named First Class' do
     expect(@student.classroom).to eql(classroom)
   end
+
+  it 'play_hooky method should return the correct string' do
+    expect(@student.play_hooky).to eq('¯\(ツ)/¯')
+  end
+
+  it 'add_classroom method should add student to classroom correctly' do
+    new_classroom = Classroom.new('classroom-2')
+    @student.add_classroom(new_classroom)
+    expect(new_classroom.students.include?(@student)).to be true
+  end
 end
