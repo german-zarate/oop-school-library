@@ -7,7 +7,7 @@ parent_permission = true
 
 describe Person do
   before(:context) do
-    @person = Person.new(age, name, parent_permission:parent_permission)
+    @person = Person.new(age, name, parent_permission: parent_permission)
   end
 
   it 'it is a instance of Person class' do

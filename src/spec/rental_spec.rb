@@ -1,13 +1,11 @@
-
 require_relative '../rental'
 require_relative '../person'
 require_relative '../book'
 
-
 describe Classroom do
   before(:context) do
     @book = Book.new('book 1', 'author-1')
-    @person = Person.new(25, 'Birhanu Gudisa', parent_permission:true)
+    @person = Person.new(25, 'Birhanu Gudisa', parent_permission: true)
     @date = Time.now
     @rental = Rental.new(@date, @person, @book)
   end
@@ -27,6 +25,4 @@ describe Classroom do
   it 'Should return correct Rented person name' do
     expect(@rental.person.name).to eq(@person.name)
   end
-
-
 end
